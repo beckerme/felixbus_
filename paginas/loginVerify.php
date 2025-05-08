@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Redireciona conforme perfil
         if ($user['perfil_id'] === 3) {
-            header("Location: [aaa]sucesso.php");
+            header("Location: adminArea.php");
         } else {
             header("Location: [aaa]sucessocop.php");
         }
