@@ -17,7 +17,7 @@
 </head>
 
 <body>
-     <!-- Responsive navbar-->
+    <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container px-5">
             <a class="navbar-brand" href="index.php">Felix Buss</a>
@@ -45,7 +45,7 @@
                                 <form action="secretoRegisto.php" method="post">
 
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="nome"/>
+                                        <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="nome" />
                                         <label class="form-label" for="form3Example1cg">Your Name</label>
                                     </div>
 
@@ -71,20 +71,19 @@
                                             class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color:#7394e963; border-color:#7394e963;">Registar</button>
                                     </div>
                                     <br>
-                                    <?php 
-                                        
-                                            if(isset($_SESSION['registo_status']))
-                                            {
-                                                ?>
-                                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                        <strong></strong> <?= $_SESSION['registo_status']; ?>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                    </div>
-                                                <?php 
-                                                unset($_SESSION['registo_status']);
-                                            }
+                                    <?php
 
-                                                ?>
+                                    if (isset($_SESSION['registo_status'])) {
+                                    ?>
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong></strong> <?= $_SESSION['registo_status']; ?>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    <?php
+                                        unset($_SESSION['registo_status']);
+                                    }
+
+                                    ?>
 
                                     <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="login.php"
                                             class="fw-bold text-body"><u>Login here</u></a></p>
@@ -99,7 +98,9 @@
         </div>
     </section>
     <footer class="py-5 bg-dark">
-        <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        <div class="container px-4 px-lg-5">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+        </div>
     </footer>
 
 
