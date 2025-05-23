@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt_verifica->rowCount() > 0) {
         // Se o email já existir, redireciona com erro
-        header("Location: clienteArea.php?erro=email");
+        header("Location: areaPessoal.php?erro=email");
         exit();
     }
 
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['user_email'] = $novo_email;
 
     // Redirecionar para a página com mensagem de sucesso
-    header("Location: clienteArea.php?atualizado=1");
+    header("Location: areaPessoal.php?atualizado=1");
     exit();
 }
 ?>

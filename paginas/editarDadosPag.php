@@ -40,7 +40,7 @@ $cliente = $query->fetch();
                     </ul>
                     <div class="d-flex align-items-center">
                         <img src="user_icon.png" alt="Perfil" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 8px;">
-                        <a href="clienteArea.php"><span class="text-white me-3"><?php echo htmlspecialchars($_SESSION['user_nome']); ?></span></a>
+                        <a href="areaPessoal.php"><span class="text-white me-3"><?php echo htmlspecialchars($_SESSION['user_nome']); ?></span></a>
                         <a href="logout.php" class="btn btn-outline-light btn-sm">Logout</a>
                     </div>
                 <?php else: ?>

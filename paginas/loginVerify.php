@@ -27,12 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_email'] = $user['email'];
         $_SESSION['user_perfil'] = $user['perfil_id'];
 
-        // Redireciona conforme perfil
-        if ($user['perfil_id'] === 3) {
-            header("Location: adminArea.php");
-        } else {
-            header("Location: [aaa]sucessocop.php");
-        }
+        // Redireciona para a área pessoal unificada
+        header("Location: areaPessoal.php");
         exit();
     } else {
         $_SESSION['erro_login'] = "Credenciais inválidas.";
@@ -40,4 +36,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 }
-?>
