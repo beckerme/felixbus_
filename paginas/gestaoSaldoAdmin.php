@@ -28,15 +28,7 @@ if (isset($_SESSION['msg_carteira_admin'])) {
 }
 
 // Movimentos da carteira FelixBus
-$stmt = $ligacao->prepare('SELECT m.data, m.tipo, m.valor, m.carteira_origem, m.carteira_destino, m.descricao,
-    coalesce(uo.nome, "FelixBus") as nome_origem, coalesce(ud.nome, "FelixBus") as nome_destino
-FROM movimentocarteira m
-LEFT JOIN carteira co ON m.carteira_origem = co.id
-LEFT JOIN utilizador uo ON co.utilizador_id = uo.id
-LEFT JOIN carteira cd ON m.carteira_destino = cd.id
-LEFT JOIN utilizador ud ON cd.utilizador_id = ud.id
-WHERE m.carteira_destino = :cid OR m.carteira_origem = :cid
-ORDER BY m.data DESC');
+$stmt = $ligacao->prepare('SELECT data, tipo, valor, carteira_origem, carteira_destino, descricao FROM movimentocarteira WHERE carteira_destino = :cid OR carteira_origem = :cid ORDER BY data DESC');
 $stmt->bindParam(':cid', $carteira['id'], PDO::PARAM_INT);
 $stmt->execute();
 $movs = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -97,8 +89,8 @@ $movs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 echo '<td>' . date('d/m/Y H:i', strtotime($mov['data'])) . '</td>';
                 echo '<td>' . ucfirst($mov['tipo']) . '</td>';
                 echo '<td>' . number_format($mov['valor'], 2, ',', '.') . '</td>';
-                echo '<td>' . ($mov['nome_origem'] ? htmlspecialchars($mov['nome_origem']) : '-') . '</td>';
-                echo '<td>' . ($mov['nome_destino'] ? htmlspecialchars($mov['nome_destino']) : '-') . '</td>';
+                echo '<td>' . ($mov['carteira_origem'] ? $mov['carteira_origem'] : '-') . '</td>';
+                echo '<td>' . ($mov['carteira_destino'] ? $mov['carteira_destino'] : '-') . '</td>';
                 echo '<td>' . htmlspecialchars($mov['descricao']) . '</td>';
                 echo '</tr>';
             }
